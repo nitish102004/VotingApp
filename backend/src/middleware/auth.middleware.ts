@@ -18,8 +18,13 @@ declare global {
 
 export const protect = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-        // Get token from cookies
-        const token = req.cookies.jwt;
+        // Get token from cookies or Authorization header
+        let token = req.cookies.jwt;
+
+        // If no cookie, check Authorization header
+        if (!token && req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+            token = req.headers.authorization.split(' ')[1];
+        }
 
         // Check if token exists
         if (!token) {
