@@ -1,0 +1,47 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+logs/
+*.log
+
+# Test files
+*.test.js
+coverage/
+
+# MongoDB data dumps
+mongodb_data/
+
+# Sensitive data files
+scripts/private/
+scripts/data/
+**/private/*.csv
+**/private/*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+env/
+venv/
+ENV/
+*.egg-info/
+
+# Sample/test files containing Aadhaar numbers (except the template sample file)
+scripts/*aadhaar*.csv
+!scripts/sample_aadhaar_list.csv 
