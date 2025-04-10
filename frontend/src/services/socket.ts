@@ -10,7 +10,7 @@ class SocketService {
 
         const socketUrl = process.env.NEXT_PUBLIC_API_URL
             ? process.env.NEXT_PUBLIC_API_URL.replace('/api', '')
-            : 'http://localhost:5000';
+            : 'https://votingapp-de0x.onrender.com';
 
         this.socket = io(socketUrl, {
             withCredentials: true

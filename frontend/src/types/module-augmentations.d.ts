@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { 
-  GridProps as MuiGridProps, 
-  GridTypeMap as MuiGridTypeMap 
+import {
+  GridProps as MuiGridProps,
+  GridTypeMap as MuiGridTypeMap
 } from '@mui/material/Grid';
 import { SxProps, Theme } from '@mui/material/styles';
 

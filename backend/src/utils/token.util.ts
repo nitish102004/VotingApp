@@ -21,16 +21,12 @@ export const sendTokenCookie = (user: IUser, statusCode: number, res: Response):
     const token = generateToken(user);
 
     // Set JWT as HttpOnly cookie
-    const cookieOptions = {
-        expires: new Date(
-            Date.now() + parseInt((process.env.COOKIE_EXPIRES_IN || '1') as string) * 24 * 60 * 60 * 1000
-        ),
+    res.cookie('jwt', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' as const : 'lax' as const
-    };
-
-    res.cookie('jwt', token, cookieOptions);
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        maxAge: 30 * 24 * 60 * 60 * 1000
+    });
 
     // Remove password from output
     const userObject = user.toObject();

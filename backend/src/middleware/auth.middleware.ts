@@ -39,6 +39,11 @@ export const protect = async (req: Request, res: Response, next: NextFunction): 
 
         // Set user in request object
         req.user = user;
+
+        // Add to your auth middleware temporarily
+        console.log('Cookies:', req.cookies);
+        console.log('Auth header:', req.headers.authorization);
+
         next();
     } catch (error) {
         res.status(401).json({ success: false, message: 'Not authorized, token failed' });

@@ -156,14 +156,14 @@ const Vote: React.FC = () => {
         }
 
         return (
-// @ts-ignore
+            // @ts-ignore
             <Grid container spacing={3} sx={{ mt: 2 }}>
                 {positions.map((position) => {
                     const candidates = candidatesByPosition[position._id] || [];
                     const hasVoted = votedPositions.includes(position._id);
 
                     return (
-// @ts-ignore
+                        // @ts-ignore
                         <Grid item xs={12} key={position._id}>
                             <Card>
                                 <CardHeader
