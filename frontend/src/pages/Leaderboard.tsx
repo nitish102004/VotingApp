@@ -100,14 +100,6 @@ const Leaderboard: React.FC = () => {
                 setLoading(true);
                 console.log("Fetching leaderboard data...");
 
-                // Try direct API call for testing
-                try {
-                    const directApiResponse = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/leaderboard`);
-                    console.log("Direct API call response:", directApiResponse.data);
-                } catch (directApiError) {
-                    console.error("Direct API call failed:", directApiError);
-                }
-
                 const response = await leaderboardService.getLeaderboard();
                 console.log("Raw API response:", response);
 

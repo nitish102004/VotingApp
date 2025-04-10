@@ -21,9 +21,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new SocketIOServer(server, {
     cors: {
-        origin: process.env.NODE_ENV === 'production'
-            ? process.env.CLIENT_URL || 'https://your-production-domain.com'
-            : process.env.CLIENT_URL || 'http://localhost:3000',
+        origin: ['https://voting-app-gold-mu.vercel.app', 'http://localhost:3000'],
         credentials: true
     }
 });
@@ -42,10 +40,10 @@ mongoose.connect(process.env.MONGODB_URI as string)
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: process.env.NODE_ENV === 'production'
-        ? process.env.CLIENT_URL || 'https://your-production-domain.com'
-        : process.env.CLIENT_URL || 'http://localhost:3000',
-    credentials: true
+    origin: ['https://voting-app-gold-mu.vercel.app', 'http://localhost:3000'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Make io available in request

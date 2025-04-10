@@ -8,9 +8,9 @@ class SocketService {
     connect() {
         if (this.socket) return;
 
-        const socketUrl = process.env.NEXT_PUBLIC_API_URL
-            ? process.env.NEXT_PUBLIC_API_URL.replace('/api', '')
-            : 'https://votingapp-de0x.onrender.com';
+        const socketUrl = process.env.REACT_APP_API_URL
+            ? process.env.REACT_APP_API_URL.replace('/api', '')
+            : 'http://localhost:5000';
 
         this.socket = io(socketUrl, {
             withCredentials: true
